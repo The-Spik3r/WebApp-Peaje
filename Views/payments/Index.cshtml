@@ -1,0 +1,199 @@
+﻿@model Peajes.Controllers.PaymentsViewModel
+
+@{
+    ViewData["Title"] = "Payments Index";
+}
+
+<h1>Payments</h1>
+
+
+
+<h3>Vehiculos Pendientes a pagar</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculos.First().id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculos.First().matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculos.First().modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculos.First().marca)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Vehiculos)  
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca)
+                </td>
+                <td>
+                    @Html.ActionLink("Pagar", "Create", "payments", new { matricula = item.matricula, IdVehiculo = item.id }, null)
+
+                    @Html.ActionLink("Details", "Details", "Vehiculo", new { id = item.id }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Vehiculo", new { id = item.id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Motos Pendientes a pagar</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Motos.First().id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motos.First().matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motos.First().modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motos.First().marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motos.First().cilindraje)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Motos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cilindraje)
+                </td>
+                <td>
+                    @Html.ActionLink("Pagar", "Create", "payments", new { matricula = item.matricula }, null) |
+                    @Html.ActionLink("Details", "Details", "Moto", new { id = item.id }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Vehiculo", new { id = item.id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Camion Pendientes a pagar</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Camions.First().id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camions.First().matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camions.First().modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camions.First().marca)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Camions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca)
+                </td>
+                <td>
+                    @Html.ActionLink("Pagar", "Create", "payments", new { matricula = item.matricula }, null) |
+                    @Html.ActionLink("Details", "Details", "Moto", new { id = item.id }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Vehiculo", new { id = item.id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Colectivos Pendientes a pagar</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Colectivos.First().id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colectivos.First().matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colectivos.First().modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colectivos.First().marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colectivos.First().pisos)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Colectivos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pisos)
+                </td>
+                <td>
+                    @Html.ActionLink("Pagar", "Create", "payments", new { matricula = item.matricula }, null) |
+                    @Html.ActionLink("Details", "Details", "Moto", new { id = item.id }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Vehiculo", new { id = item.id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

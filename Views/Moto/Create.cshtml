@@ -1,0 +1,56 @@
+﻿@model Peajes.Models.entity.Moto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Moto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="matricula" class="control-label"></label>
+                <input asp-for="matricula" class="form-control" />
+                <span asp-validation-for="matricula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cilindraje" class="control-label"></label>
+                <input asp-for="cilindraje" class="form-control" />
+                <span asp-validation-for="cilindraje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="modelo" class="control-label"></label>
+                <input asp-for="modelo" class="form-control" />
+                <span asp-validation-for="modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="marca" class="control-label"></label>
+                <input asp-for="marca" class="form-control" />
+                <span asp-validation-for="marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Mostrar la tarifa si está disponible -->
+@if (ViewBag.TarifaEncontrada > 0)
+{
+    <div class="alert alert-info">
+        La tarifa para este tipo de vehículo es: @ViewBag.TarifaEncontrada $
+        <br></br>
+        al continuar se mandara a revisión para continuar con el proceso de paga.
+    </div>
+}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
